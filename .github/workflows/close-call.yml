@@ -1,0 +1,47 @@
+name: close-call-bot
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # 10 dakikada bir (GitHub bazen birkaç dakika geciktirir)
+  workflow_dispatch: {}      # Actions sekmesinden elle çalıştırmak için
+
+permissions:
+  contents: write            # bot-state.json'u geri kaydetmek için
+
+concurrency:
+  group: close-call-bot
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Key'leri secret'tan aç
+        env:
+          KEYS_B64: ${{ secrets.CLOSE_CALL_KEYS }}
+        run: |
+          mkdir -p keys
+          echo "$KEYS_B64" | base64 -d | tar -xz -C keys
+          echo "key sayısı: $(ls keys/*.json | wc -l)"
+
+      - name: Bir adım çalıştır
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node close-call-bot.mjs tick --step 4 --hours 24
+
+      - name: Durumu kaydet
+        if: always()
+        run: |
+          rm -rf keys
+          git config user.name "close-call-bot"
+          git config user.email "close-call-bot@users.noreply.github.com"
+          git add bot-state.json
+          git diff --cached --quiet || { git commit -m "state $(date -u +%Y-%m-%dT%H:%MZ)" && git push; }
