@@ -428,7 +428,7 @@ function openedText(o) {
   return `🟢 Close Call: çift ${o.pair} açıldı\n${o.qty} NVDA @ ${o.px} (LONG + SHORT)\nSebep: ${o.reason}\nBoşta kalan çift: ${o.left}/${o.total}`;
 }
 
-async function summaryText(r) {
+async function summaryText(r, title = "📊 Close Call günlük özet") {
   const keys = loadKeys();
   const mine = new Set(keys.map((k) => k.did));
   const board = (await refereeRecords(ROOMS.pnl)).filter((x) => x.t === "pnl").at(-1)?.top || [];
@@ -436,13 +436,45 @@ async function summaryText(r) {
   const entries = r.state.trades.map((t) => `${t.px}`).join(", ") || "-";
   const kilit = Math.max(0, (Date.parse("2026-10-04T09:00:00Z") - Date.now()) / 3.6e6).toFixed(0);
   return [
-    `📊 Close Call günlük özet`,
+    title,
     `Fiyat ${r.m.ref} (sweep ${r.m.sweep})`,
     `Girişlerimiz: ${entries}`,
     `Boşta çift: ${(r.pairs || []).filter((p) => !pairBusy(r.state, p, r.m, r.flow)).length}/${(r.pairs || []).length}`,
     `Sıralama: lider ${board[0]?.[1] ?? "?"}, 25. ${board.at(-1)?.[1] ?? "?"}` + (ours.length ? `, BİZ İLK 25'TE: ${ours.map(({ i, row }) => `${i + 1}. (${row[1]})`).join(" ")}` : ", bizden ilk 25'te yok"),
     `Kilide ~${kilit} saat`,
   ].join("\n");
+}
+
+function tradesText(state) {
+  if (!state.trades.length) return "Henüz açılmış çift yok.";
+  return ["📋 Açılan çiftler:", ...state.trades.map((t, i) =>
+    `${i + 1}) ${t.qty} NVDA @ ${t.px}  (${t.at.slice(5, 16).replace("T", " ")} UTC)`)].join("\n");
+}
+
+// Telegram'dan gelen komutlar: sadece TELEGRAM_CHAT_ID'den gelenler dikkate alınır
+async function handleCommands(r) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chat = String(process.env.TELEGRAM_CHAT_ID || "");
+  if (!token || !chat) return;
+  const state = loadState();
+  const offset = state.tgOffset || 0;
+  const data = await http(`https://api.telegram.org/bot${token}/getUpdates?offset=${offset}&timeout=0`, {}, 2);
+  const updates = data?.result || [];
+  if (!updates.length) return;
+  const cmds = [];
+  for (const u of updates) {
+    const msg = u.message;
+    if (msg && String(msg.chat?.id) === chat && typeof msg.text === "string") cmds.push(msg.text.trim().toLowerCase().split(/[\s@]/)[0]);
+  }
+  state.tgOffset = updates.at(-1).update_id + 1;
+  saveState(state);
+  for (const c of new Set(cmds)) {
+    if (c === "/durum" || c === "durum") await notify(await summaryText({ ...r, state: loadState() }, "📊 Close Call durum"));
+    else if (c === "/islemler" || c === "islemler" || c === "/işlemler") await notify(tradesText(loadState()));
+    else if (c === "/start" || c === "/yardim" || c === "/yardım" || c === "yardim") {
+      await notify("Komutlar:\n/durum – güncel özet\n/islemler – açılan çiftler\nCevap en geç ~10 dakika içinde gelir (bot 10 dakikada bir uyanıyor).");
+    }
+  }
 }
 
 // GitHub Actions'ın her çalıştırmada çağırdığı tek adım
@@ -457,6 +489,7 @@ async function cmdTick(opts) {
     if (new Date().getUTCHours() >= 6 && state.summaryDay !== today) {
       if (await notify(await summaryText({ ...r, state }))) { state.summaryDay = today; saveState(state); }
     }
+    try { await handleCommands(r); } catch (err) { console.log(`komut okunamadı: ${err.message}`); }
     if (r.locked && !state.lockNotified) {
       if (await notify("🔒 Close Call işlemleri kilitlendi. Kapanış fiyatı 13:00 (TR) sonrası belli olacak.")) { state.lockNotified = true; saveState(state); }
     }
