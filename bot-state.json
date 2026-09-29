@@ -55,5 +55,6 @@
       "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":8520402,\"last_seq\":8520421,\"generation\":1,\"messages\":[{\"seq\":8520402,\"ts\":\"2026-09-29T11:07:25.012336Z\",\"from\":\"did:key:z6Mko9KHHvamdhLvVN5yjwRzRWbqDir2R1DffBcyknsXVj3b\",\"text\":\"{\\\"t\\\":\\\"owner\\\",\\\"season\\\":\\\"close-1\\\",\\\"key\\\":\\\"did:key:z6Mko9KHHvamdhLvVN5yjwRzRWbqDir2R1DffBcyknsXVj3b\\\"}\",\"nonce\":1790680043699374800,\"sig\":\"O7kWfjW1SCR6AEK476nECYgXeLE2QkVXUz1B"
     }
   ],
-  "summaryDay": "2026-09-29"
+  "summaryDay": "2026-09-29",
+  "tgOffset": 60305682
 }
