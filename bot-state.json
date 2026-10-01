@@ -81,6 +81,6 @@
       "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":13397761,\"last_seq\":13397780,\"generation\":1,\"messages\":[{\"seq\":13397761,\"ts\":\"2026-09-30T11:23:22.425956Z\",\"from\":\"did:key:z6MkueHDRAFNTtH675nMJbk76cZEyGCkrYncqUSXLaiStGaK\",\"text\":\"{\\\"t\\\":\\\"trade\\\",\\\"season\\\":\\\"close-1\\\",\\\"terms\\\":{\\\"id\\\":\\\"p10845452x10845451oafz\\\",\\\"maker\\\":\\\"did:key:z6MkueHDRAFNTtH675nMJbk76cZEyGCkrYncqUSXLaiStGaK\\\",\\\"px\\\":\\\"216.82\\\",\\\"qty"
     }
   ],
-  "summaryDay": "2026-09-30",
+  "summaryDay": "2026-10-01",
   "tgOffset": 60305685
 }
