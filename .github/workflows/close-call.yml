@@ -1,12 +1,15 @@
 name: close-call-bot
 
+# Zincir: her çalıştırma bitince "chain-wait" ortamında 9 dk bekler (bekleme dakika harcamaz),
+# sonra bir sonraki çalıştırmayı kendisi başlatır. Schedule sadece zincir koparsa yedek.
 on:
+  workflow_dispatch: {}
   schedule:
-    - cron: "*/10 * * * *"   # 10 dakikada bir (GitHub bazen birkaç dakika geciktirir)
-  workflow_dispatch: {}      # Actions sekmesinden elle çalıştırmak için
+    - cron: "17 * * * *"
 
 permissions:
-  contents: write            # bot-state.json'u geri kaydetmek için
+  contents: write
+  actions: write
 
 concurrency:
   group: close-call-bot
@@ -48,3 +51,19 @@ jobs:
           git commit -m "state $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git push && exit 0; git pull --rebase -q; done
           exit 1
+
+  next:
+    needs: tick
+    if: always()
+    runs-on: ubuntu-latest
+    environment: chain-wait
+    timeout-minutes: 3
+    steps:
+      - name: Sonraki çalıştırmayı başlat
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(date -u +%s)" -ge "$(date -u -d 2026-10-04T09:05:00Z +%s)" ]; then
+            echo "Kilit geçti, zincir durduruldu."; exit 0
+          fi
+          gh workflow run close-call.yml --repo "$GITHUB_REPOSITORY" --ref main
