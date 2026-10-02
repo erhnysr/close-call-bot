@@ -1,13 +1,13 @@
 {
   "nonces": {
-    "did:key:z6MkssNqrErB59cxythR2o44sJPYmHGaZVLGuAhXHuSXx1dZ": "1790862272746",
+    "did:key:z6MkssNqrErB59cxythR2o44sJPYmHGaZVLGuAhXHuSXx1dZ": "1790943752758",
     "did:key:z6MksBxdn4ycj6b8wUdNnjJMo5GXjqLhG3tgM5sHSMC2P4dj": "1790676811614",
     "did:key:z6MkjjUarS1uCinTrTvsMWQbupKyAsThCdoWnx2ER3AgLeAf": "1790676066858",
     "did:key:z6MkoNwrw8dszht8tazYfqBJjRJaaJhkRASp5DJd8m6bXeGe": "1790767402589",
     "did:key:z6MkqZjQzo4uXrBpn69ESEmPe9b1FZrCePaZ28TBKdZPx4Jz": "1790676069871",
     "did:key:z6Mkj1UFoGVEmeUpTweAfzjeLe3GYSsTu4kCcyum2GF4t3oZ": "1790862273687",
     "did:key:z6MkuWPnzwwxNCJ7HsyqnPYEx6Zq1CRanZQ5S9futgMVg3bn": "1790676072881",
-    "did:key:z6MkutYK5H85GAcP4nEtRt8c7nSiR9YweKw3SYvKoKkSPJ3a": "1790676074363",
+    "did:key:z6MkutYK5H85GAcP4nEtRt8c7nSiR9YweKw3SYvKoKkSPJ3a": "1790943753356",
     "did:key:z6Mkt9u8eoMBU3cJVHL2Xn7AsMC6Pd43XMxJmsrwvoPzGuGf": "1790676075866",
     "did:key:z6MkiB11ybH2fjnMNChmKhA8PuyV2254Aj5D84czZgMHGomM": "1790678497897",
     "did:key:z6Mkv2iPQz6bWy5aqJmn93Le8gUriBZC1GBdnSuREnNnLkgo": "1790680045184"
@@ -61,6 +61,18 @@
       "room": "close1",
       "seq": 17999554,
       "at": "2026-10-01T13:44:34.213Z"
+    },
+    {
+      "id": "ebmuqxo4984",
+      "px": "235.01",
+      "qty": "41.28",
+      "long": "did:key:z6MkuWPnzwwxNCJ7HsyqnPYEx6Zq1CRanZQ5S9futgMVg3bn",
+      "short": "did:key:z6MkutYK5H85GAcP4nEtRt8c7nSiR9YweKw3SYvKoKkSPJ3a",
+      "sweep": 2020,
+      "until": 2026,
+      "room": "close1",
+      "seq": 20972214,
+      "at": "2026-10-02T12:22:33.597Z"
     }
   ],
   "responses": [
@@ -105,6 +117,20 @@
       "t": "trade",
       "seq": 17999554,
       "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":17999535,\"last_seq\":17999554,\"generation\":1,\"messages\":[{\"seq\":17999535,\"ts\":\"2026-10-01T13:44:33.710054Z\",\"from\":\"did:key:z6MkiDLKgvrRT4eiSjTaFSRCMZTKThDSbu4cNSZDQdstZ2q2\",\"text\":\"{\\\"t\\\":\\\"owner\\\",\\\"season\\\":\\\"close-1\\\",\\\"key\\\":\\\"did:key:z6MkiDLKgvrRT4eiSjTaFSRCMZTKThDSbu4cNSZDQdstZ2q2\\\"}\",\"nonce\":1790862272440,\"sig\":\"YNE1lO87FctzEfr7bD5LC_iLKiIL8KQXbu8-tFJ"
+    },
+    {
+      "at": "2026-10-02T12:22:33.355Z",
+      "room": "close1",
+      "t": "room",
+      "seq": 20972202,
+      "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":20972183,\"last_seq\":20972202,\"generation\":1,\"messages\":[{\"seq\":20972183,\"ts\":\"2026-10-02T12:22:32.971235Z\",\"from\":\"did:key:z6MkfGj5A9EiLFni5UKN2cFncbbmqwQjBFiqdqUaqQRvxF4T\",\"text\":\"{\\\"t\\\":\\\"owner\\\",\\\"season\\\":\\\"close-1\\\",\\\"key\\\":\\\"did:key:z6MkfGj5A9EiLFni5UKN2cFncbbmqwQjBFiqdqUaqQRvxF4T\\\"}\",\"nonce\":1790943752824,\"sig\":\"jr7_vQTDOGaYev6DaOD1gxX570RzaQsFfeoLTrd"
+    },
+    {
+      "at": "2026-10-02T12:22:33.597Z",
+      "room": "close1",
+      "t": "trade",
+      "seq": 20972214,
+      "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":20972195,\"last_seq\":20972214,\"generation\":1,\"messages\":[{\"seq\":20972195,\"ts\":\"2026-10-02T12:22:33.150615Z\",\"from\":\"did:key:z6MkpnJ5YowpeSmYsHu1ZhkMSUHZzSyxAkX445WPgSBLwQSS\",\"text\":\"{\\\"t\\\":\\\"owner\\\",\\\"season\\\":\\\"close-1\\\",\\\"key\\\":\\\"did:key:z6MkpnJ5YowpeSmYsHu1ZhkMSUHZzSyxAkX445WPgSBLwQSS\\\"}\",\"nonce\":1790943752396510500,\"sig\":\"BSbRGfGYiSD7MHR74PZf3nSmZT8kYlzRk"
     }
   ],
   "summaryDay": "2026-10-02",
