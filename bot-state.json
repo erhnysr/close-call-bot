@@ -133,6 +133,6 @@
       "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":20972195,\"last_seq\":20972214,\"generation\":1,\"messages\":[{\"seq\":20972195,\"ts\":\"2026-10-02T12:22:33.150615Z\",\"from\":\"did:key:z6MkpnJ5YowpeSmYsHu1ZhkMSUHZzSyxAkX445WPgSBLwQSS\",\"text\":\"{\\\"t\\\":\\\"owner\\\",\\\"season\\\":\\\"close-1\\\",\\\"key\\\":\\\"did:key:z6MkpnJ5YowpeSmYsHu1ZhkMSUHZzSyxAkX445WPgSBLwQSS\\\"}\",\"nonce\":1790943752396510500,\"sig\":\"BSbRGfGYiSD7MHR74PZf3nSmZT8kYlzRk"
     }
   ],
-  "summaryDay": "2026-10-02",
+  "summaryDay": "2026-10-03",
   "tgOffset": 60305688
 }
