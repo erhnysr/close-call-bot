@@ -1,6 +1,6 @@
 {
   "nonces": {
-    "did:key:z6MkssNqrErB59cxythR2o44sJPYmHGaZVLGuAhXHuSXx1dZ": "1790943752758",
+    "did:key:z6MkssNqrErB59cxythR2o44sJPYmHGaZVLGuAhXHuSXx1dZ": "1791030674843",
     "did:key:z6MksBxdn4ycj6b8wUdNnjJMo5GXjqLhG3tgM5sHSMC2P4dj": "1790676811614",
     "did:key:z6MkjjUarS1uCinTrTvsMWQbupKyAsThCdoWnx2ER3AgLeAf": "1790676066858",
     "did:key:z6MkoNwrw8dszht8tazYfqBJjRJaaJhkRASp5DJd8m6bXeGe": "1790767402589",
@@ -9,7 +9,7 @@
     "did:key:z6MkuWPnzwwxNCJ7HsyqnPYEx6Zq1CRanZQ5S9futgMVg3bn": "1790676072881",
     "did:key:z6MkutYK5H85GAcP4nEtRt8c7nSiR9YweKw3SYvKoKkSPJ3a": "1790943753356",
     "did:key:z6Mkt9u8eoMBU3cJVHL2Xn7AsMC6Pd43XMxJmsrwvoPzGuGf": "1790676075866",
-    "did:key:z6MkiB11ybH2fjnMNChmKhA8PuyV2254Aj5D84czZgMHGomM": "1790678497897",
+    "did:key:z6MkiB11ybH2fjnMNChmKhA8PuyV2254Aj5D84czZgMHGomM": "1791030675139",
     "did:key:z6Mkv2iPQz6bWy5aqJmn93Le8gUriBZC1GBdnSuREnNnLkgo": "1790680045184"
   },
   "registered": {
@@ -73,6 +73,18 @@
       "room": "close1",
       "seq": 20972214,
       "at": "2026-10-02T12:22:33.597Z"
+    },
+    {
+      "id": "ebmusdf5j75",
+      "px": "234.29",
+      "qty": "41.41",
+      "long": "did:key:z6Mkt9u8eoMBU3cJVHL2Xn7AsMC6Pd43XMxJmsrwvoPzGuGf",
+      "short": "did:key:z6MkiB11ybH2fjnMNChmKhA8PuyV2254Aj5D84czZgMHGomM",
+      "sweep": 2311,
+      "until": 2317,
+      "room": "close1",
+      "seq": 24137061,
+      "at": "2026-10-03T12:31:15.425Z"
     }
   ],
   "responses": [
@@ -131,6 +143,20 @@
       "t": "trade",
       "seq": 20972214,
       "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":20972195,\"last_seq\":20972214,\"generation\":1,\"messages\":[{\"seq\":20972195,\"ts\":\"2026-10-02T12:22:33.150615Z\",\"from\":\"did:key:z6MkpnJ5YowpeSmYsHu1ZhkMSUHZzSyxAkX445WPgSBLwQSS\",\"text\":\"{\\\"t\\\":\\\"owner\\\",\\\"season\\\":\\\"close-1\\\",\\\"key\\\":\\\"did:key:z6MkpnJ5YowpeSmYsHu1ZhkMSUHZzSyxAkX445WPgSBLwQSS\\\"}\",\"nonce\":1790943752396510500,\"sig\":\"BSbRGfGYiSD7MHR74PZf3nSmZT8kYlzRk"
+    },
+    {
+      "at": "2026-10-03T12:31:15.138Z",
+      "room": "close1",
+      "t": "room",
+      "seq": 24137054,
+      "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":24137035,\"last_seq\":24137054,\"generation\":1,\"messages\":[{\"seq\":24137035,\"ts\":\"2026-10-03T12:31:14.150577Z\",\"from\":\"did:key:z6MkmKvNDG8u7ERwcgcNouDmVBQbGdiRtZrPYGRCY2KJWWBK\",\"text\":\"{\\\"t\\\":\\\"trade\\\",\\\"season\\\":\\\"close-1\\\",\\\"terms\\\":{\\\"id\\\":\\\"894da50d\\\",\\\"maker\\\":\\\"did:key:z6Mkj4TH8hPydxH41hACBdoUFrnRFdK5wrGFddyA2r9SxEDf\\\",\\\"px\\\":\\\"238.13\\\",\\\"qty\\\":\\\"0.84\\\",\\\""
+    },
+    {
+      "at": "2026-10-03T12:31:15.425Z",
+      "room": "close1",
+      "t": "trade",
+      "seq": 24137061,
+      "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":24137042,\"last_seq\":24137061,\"generation\":1,\"messages\":[{\"seq\":24137042,\"ts\":\"2026-10-03T12:31:14.447699Z\",\"from\":\"did:key:z6MkjmUEZMEfVcJLY3EMEo85cVyjvYDLoWR6KRaLrpwush8u\",\"text\":\"{\\\"t\\\":\\\"trade\\\",\\\"season\\\":\\\"close-1\\\",\\\"terms\\\":{\\\"id\\\":\\\"c1b-t2311-1-wush8u\\\",\\\"maker\\\":\\\"did:key:z6MkjmUEZMEfVcJLY3EMEo85cVyjvYDLoWR6KRaLrpwush8u\\\",\\\"px\\\":\\\"237.11\\\",\\\"qty\\\":\\"
     }
   ],
   "summaryDay": "2026-10-03",
