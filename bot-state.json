@@ -159,6 +159,6 @@
       "raw": "{\"room\":\"close1\",\"count\":20,\"first_seq\":24137042,\"last_seq\":24137061,\"generation\":1,\"messages\":[{\"seq\":24137042,\"ts\":\"2026-10-03T12:31:14.447699Z\",\"from\":\"did:key:z6MkjmUEZMEfVcJLY3EMEo85cVyjvYDLoWR6KRaLrpwush8u\",\"text\":\"{\\\"t\\\":\\\"trade\\\",\\\"season\\\":\\\"close-1\\\",\\\"terms\\\":{\\\"id\\\":\\\"c1b-t2311-1-wush8u\\\",\\\"maker\\\":\\\"did:key:z6MkjmUEZMEfVcJLY3EMEo85cVyjvYDLoWR6KRaLrpwush8u\\\",\\\"px\\\":\\\"237.11\\\",\\\"qty\\\":\\"
     }
   ],
-  "summaryDay": "2026-10-03",
+  "summaryDay": "2026-10-04",
   "tgOffset": 60305688
 }
