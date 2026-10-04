@@ -160,5 +160,6 @@
     }
   ],
   "summaryDay": "2026-10-04",
-  "tgOffset": 60305688
+  "tgOffset": 60305688,
+  "lockNotified": true
 }
